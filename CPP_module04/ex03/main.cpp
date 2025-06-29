@@ -6,11 +6,15 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:09 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:51:13 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 16:14:59 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "IMateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

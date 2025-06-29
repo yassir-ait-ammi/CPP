@@ -6,14 +6,14 @@
 #    By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 18:34:24 by yaait-am          #+#    #+#              #
-#    Updated: 2025/06/28 11:41:51 by yaait-am         ###   ########.fr        #
+#    Updated: 2025/06/29 16:12:01 by yaait-am         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLGS = -Wall -Wextra -Werror -std=c++98
 NAME = Materia
-SRCS = main.cpp AMateria.cpp ICharacter.cpp IMateriaSource.cpp
+SRCS = main.cpp AMateria.cpp ICharacter.cpp IMateriaSource.cpp Ice.cpp Cure.cpp MateriaSource.cpp Character.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

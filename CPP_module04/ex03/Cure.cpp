@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 18:14:54 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 18:18:18 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/06/29 14:40:03 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/06/29 18:21:28 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#include "Cure.hpp"
 
-IMateriaSource::IMateriaSource()
-{}
-
-IMateriaSource::IMateriaSource(const IMateriaSource& other)
+Cure::Cure()
+	: AMateria("cure")
 {
-	*this = other;
 }
 
-IMateriaSource&	IMateriaSource::operator=(const IMateriaSource& other)
+Cure::Cure(const Cure& other)
 {
-	if (this != &other)
-		*this = other;
+	this->type = other.type;
+}
+
+AMateria*	Cure::clone() const
+{
+	return (new Cure());
+}
+
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
+
+Cure&	Cure::operator=(const Cure& other)
+{
+	if (this != & other)
+		AMateria::operator=(other);
 	return (*this);
 }
 
-IMateriaSource::~IMateriaSource()
-{}
+Cure::~Cure()
+{
+}
