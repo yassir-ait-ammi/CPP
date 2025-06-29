@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:14:51 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/26 19:22:42 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:28:45 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal& other);
+		WrongAnimal&	operator=(const WrongAnimal& other);
+		virtual ~WrongAnimal();
+
 		std::string	getType() const;
 		virtual void	makeSound() const;
-		virtual ~WrongAnimal();
 };
 
 #endif

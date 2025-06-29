@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:13 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:25:24 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:27:57 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ class Dog
 		Brain* brain;
 	public:
 		Dog();
+		Dog(const Dog& other);
+		Dog&	operator=(const Dog& other);
+		~Dog();
+
 		void	makeSound() const;
 		std::string	getBrain();
-		~Dog();
 };
 
 #endif

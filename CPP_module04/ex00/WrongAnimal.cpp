@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:22:43 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/26 19:22:52 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:30:03 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,17 @@ WrongAnimal::WrongAnimal()
 	std::cout << "WrongAnimal constructors has been called\n";
 }
 
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& other)
+{
+	if (this != &other)
+		*this = other;
+	return (*this);
+}
+
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
-	: type(other.type)
-{}
+{
+	*this = other;
+}
 
 std::string	WrongAnimal::getType() const
 {

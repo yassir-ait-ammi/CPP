@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:55 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:26:17 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:22:30 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@
 class Cat
 	: public Animal
 {
-	private :
-		Brain* brain;
+	private:
+		Brain *brain;
 	public:
 		Cat();
+		Cat(const Cat& other);
+		Cat&	operator=(const Cat& other);
+		~Cat();
+
 		std::string	getBrain();
 		void	makeSound() const;
-		~Cat();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:51 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:28:06 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:27:20 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ Dog::Dog()
 	std::cout << getType() << " constructors has been called\n";
 	for (int i = 0; i < 100; i++)
 		this->brain->ideas[i] = "this is a Dog!\n";
+}
+
+Dog::Dog(const Dog& other)
+{
+	*this = other;
+}
+
+Dog&	Dog::operator=(const Dog& other)
+{
+	if (this != &other)
+		*this = other;
+	return (*this);
 }
 
 void	Dog::makeSound() const

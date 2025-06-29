@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:23:41 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:18:10 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:17:17 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	Animal::makeSound() const
 	std::cout << "No sound for Animal\n";
 }
 
-Animal&	Animal::operator=(Animal& other)
+Animal&	Animal::operator=(const Animal& other)
 {
 	if (this != &other)
 		this->type = other.type;

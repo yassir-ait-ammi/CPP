@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:36:20 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:38:42 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/29 13:18:35 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ class Animal
 	public:
 		Animal();
 		Animal(const Animal& other);
-		Animal&	operator=(Animal& other);
-		std::string	getType() const;
-		virtual void makeSound() const = 0;
+		Animal&	operator=(const Animal& other);
 		virtual ~Animal();
+
+		std::string	getType() const;
+		virtual void	makeSound() const;
 };
 
 #endif
