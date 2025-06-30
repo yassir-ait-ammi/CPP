@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 18:14:17 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 18:22:47 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 14:28:35 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,3 @@ MateriaSource::~MateriaSource()
 	for (int i = 0; i < 4; ++i)
 		delete Materia[i];
 }
-

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:36:20 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 13:18:35 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:37:12 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
 		virtual ~Animal();
 
 		std::string	getType() const;
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 };
 
 #endif
