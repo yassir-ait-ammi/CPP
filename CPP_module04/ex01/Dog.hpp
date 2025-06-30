@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:13 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 13:27:44 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:17:46 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Dog
 		Dog();
 		Dog(const Dog& other);
 		Dog&	operator=(const Dog& other);
-		~Dog();
+		virtual ~Dog();
 
 		void	makeSound() const;
 		std::string	getBrain();

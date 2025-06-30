@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 15:32:36 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 18:14:40 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:17:03 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class MateriaSource
 		MateriaSource();
 		MateriaSource(const MateriaSource& other);
 		MateriaSource& operator=(const MateriaSource& other);
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		void learnMateria(AMateria* m);
 		AMateria* createMateria(std::string const & type);

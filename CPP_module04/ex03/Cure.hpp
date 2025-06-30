@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 14:29:23 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 18:21:24 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:17:16 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cure : public AMateria
 		Cure();
 		Cure(const Cure& other);
 		Cure&	operator=(const Cure& other);
-		~Cure();
+		virtual ~Cure();
 
 		void use(ICharacter& target);
 		virtual AMateria*	clone() const;

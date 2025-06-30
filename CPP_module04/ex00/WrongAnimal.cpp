@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:22:43 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 13:30:03 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:36:44 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ std::string	WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << "Meeh Meeh Meeh\n";
+	std::cout << "Wrong Animal Sound\n";
 }
 
 WrongAnimal::~WrongAnimal()

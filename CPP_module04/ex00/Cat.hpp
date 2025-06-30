@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:55 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 13:19:54 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:18:05 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat
 		Cat();
 		Cat(const Cat& other);
 		Cat&	operator=(const Cat& other);
-		~Cat();
+		virtual ~Cat();
 
 		void	makeSound() const;
 };

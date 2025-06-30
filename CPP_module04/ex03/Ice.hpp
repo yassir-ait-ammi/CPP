@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 14:28:47 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/29 18:21:11 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:17:12 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Ice
 		Ice();
 		Ice(const Ice& other);
 		Ice&	operator=(const Ice& other);
-		~Ice();
+		virtual ~Ice();
 
 		AMateria*	clone() const;
 		void use(ICharacter& target);
