@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:19:25 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:54:36 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/09/15 11:44:00 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/09/15 11:48:08 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "Serializer.hpp"
 
-#include "ClapTrap.hpp"
-
-class FragTrap : virtual public ClapTrap
+uintptr_t Serializer::serialize(Data* ptr)
 {
-	public:
-		FragTrap();
-		FragTrap(std::string new_one);
-		FragTrap(const FragTrap &other);
-		FragTrap&	operator=(const FragTrap& other);
-		void highFivesGuys(void);
-		~FragTrap();
-};
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
 
-#endif
+Data*	Serializer::deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data *>(raw));
+}
+
+Serializer::Serializer()
+{
+}
+
+Serializer::Serializer(const Serializer& other)
+{
+	*this = other;
+}
+
+Serializer::~Serializer()
+{
+}

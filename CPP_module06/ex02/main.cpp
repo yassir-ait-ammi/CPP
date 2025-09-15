@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:19:25 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:54:36 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/09/15 12:14:35 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/09/15 12:21:56 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "Base.hpp"
 
-#include "ClapTrap.hpp"
+Base* generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
-class FragTrap : virtual public ClapTrap
+int main()
 {
-	public:
-		FragTrap();
-		FragTrap(std::string new_one);
-		FragTrap(const FragTrap &other);
-		FragTrap&	operator=(const FragTrap& other);
-		void highFivesGuys(void);
-		~FragTrap();
-};
+	std::srand(std::time(NULL));
 
-#endif
+	for (int i = 0; i < 5; i++) {
+		Base* obj = generate();
+
+		std::cout << "Identify by pointer: ";
+		identify(obj);
+
+		std::cout << "Identify by reference: ";
+		identify(*obj);
+
+		delete obj;
+		std::cout << "----" << std::endl;
+	}
+	return 0;
+}

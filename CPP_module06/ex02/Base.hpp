@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:19:25 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:54:36 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/09/15 11:54:24 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/09/15 12:04:40 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#pragma once
 
-#include "ClapTrap.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
-class FragTrap : virtual public ClapTrap
+class Base
 {
 	public:
-		FragTrap();
-		FragTrap(std::string new_one);
-		FragTrap(const FragTrap &other);
-		FragTrap&	operator=(const FragTrap& other);
-		void highFivesGuys(void);
-		~FragTrap();
+		virtual ~Base();
 };
 
-#endif
+class A : public Base
+{};
+class B : public Base
+{};
+class C : public Base
+{};

@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:19:25 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:54:36 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/09/14 11:27:05 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/09/15 11:32:22 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#include "ScalarConverter.hpp"
 
-#include "ClapTrap.hpp"
-
-class FragTrap : virtual public ClapTrap
+int main(int ac, char **av)
 {
-	public:
-		FragTrap();
-		FragTrap(std::string new_one);
-		FragTrap(const FragTrap &other);
-		FragTrap&	operator=(const FragTrap& other);
-		void highFivesGuys(void);
-		~FragTrap();
-};
-
-#endif
+	if (ac != 2)
+		return (std::cout << "only two argument requaried\n", 1);
+	ScalarConverter::convert(av[1]);
+}

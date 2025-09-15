@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 14:19:25 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:54:36 by yaait-am         ###   ########.fr       */
+/*   Created: 2025/09/15 11:34:54 by yaait-am          #+#    #+#             */
+/*   Updated: 2025/09/15 11:51:45 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#pragma once
 
-#include "ClapTrap.hpp"
+#include <stdint.h>
+#include <iostream>
 
-class FragTrap : virtual public ClapTrap
+struct Data
 {
-	public:
-		FragTrap();
-		FragTrap(std::string new_one);
-		FragTrap(const FragTrap &other);
-		FragTrap&	operator=(const FragTrap& other);
-		void highFivesGuys(void);
-		~FragTrap();
+	int	nb;
+	std::string	name;
 };
 
-#endif
+class Serializer
+{
+	private:
+
+		// OCF
+		Serializer();
+		Serializer&	operator=(const Serializer& other)
+		{
+			(void)other;
+			return (*this);
+		}
+		Serializer(const Serializer &other);
+		~Serializer();
+	public:
+
+		// HELPER_FUNCTION
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+};
