@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:35:09 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/27 09:41:29 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/15 18:39:25 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int main()
 {
 	const Animal* b[100];
 	for (int i = 0; i < 50; i++)
-		b[i] = new Dog();
-	for (int i = 50; i < 100; i++)
 		b[i] = new Cat();
+	for (int i = 50; i < 100; i++)
+		b[i] = new Dog();
 	for (int i = 0; i < 100; i++)
 	{
 		std::cout << b[i]->getType() << " sound : ";
