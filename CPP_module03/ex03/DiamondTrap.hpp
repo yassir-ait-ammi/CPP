@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:36:34 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:43:45 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/15 18:37:14 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class DiamondTrap
 	private:
 		std::string name;
 	public:
+		DiamondTrap();
 		DiamondTrap(std::string name);
 		using ScavTrap::attack;
 		void	WhoAmI();

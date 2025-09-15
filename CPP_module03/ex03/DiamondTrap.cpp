@@ -6,11 +6,15 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:57:36 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 10:57:58 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/15 18:37:47 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap()
+	: name ("yassir")
+{}
 
 DiamondTrap::DiamondTrap(std::string name)
 	: ClapTrap(name + "__clap_name"), FragTrap(), ScavTrap(), name(name)
