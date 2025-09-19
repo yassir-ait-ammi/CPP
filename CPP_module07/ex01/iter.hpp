@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:08:36 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 15:33:24 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/19 16:22:50 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	add(int& nb)
 	std::cout << nb << std::endl;
 }
 
+void	print(const char *&str)
+{
+	std::cout << str << std::endl;
+}
+
 void	upper(char *&str)
 {
 	for (size_t i = 0; i < strlen(str); i++)
@@ -28,6 +33,13 @@ void	upper(char *&str)
 
 template <typename T>
 void	iter(T* a, int size, void	(*f)(T&))
+{
+	for (int i = 0; i < size; i++)
+		f(a[i]);
+}
+
+template <typename T>
+void	iter(T* a, int size, void	(*f)(const T&))
 {
 	for (int i = 0; i < size; i++)
 		f(a[i]);

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:13:11 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 15:33:04 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/19 16:22:31 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	std::cout << " -- array of string --" << std::endl;
 	char str1[] = "hello";
 	char str2[] = "world";
-	char* p[2] = {str1, str2};
-	::iter(p, 2, upper);
+	const char* p[2] = {str1, str2};
+	::iter(p, 2, print);
 	std::cout << p[0] << " " << p[1] << std::endl;
 }
