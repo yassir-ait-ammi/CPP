@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 10:55:09 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/14 10:04:40 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:53:47 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,19 @@ class AForm
 		virtual ~AForm();
 
 		// exceptions
-		class GradeTooHighException
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				const std::string	result() const
-				{
-					return ("the Grade of this BUreaucrat is too hight\n");
-				}
+				GradeTooHighException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooHighException() _GLIBCXX_NOTHROW;
 		};
-		class GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
 			public:
-				const std::string	result() const
-				{
-					return ("the Grade of this BUreaucrat is too low\n");
-				}
+				GradeTooLowException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooLowException() _GLIBCXX_NOTHROW;
 		};
 
 		// helper function

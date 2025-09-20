@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:27:45 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/19 16:07:08 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:47:23 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BUREAUCRAT_HPP
 
 # include <iostream>
+# include <exception>
 
 class Bureaucrat
 {
@@ -28,25 +29,19 @@ class Bureaucrat
 		Bureaucrat&		operator=(const Bureaucrat&	other);
 		~Bureaucrat();
 
-		class GradeTooHighException
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				GradeTooHighException() {};
-				const std::string	result() const
-				{
-					return ("the Grade of this BUreaucrat is too hight\n");
-				}
-				~GradeTooHighException() {};
+				GradeTooHighException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooHighException() _GLIBCXX_NOTHROW;
 		};
-		class GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
 			public:
-				GradeTooLowException() {};
-				const std::string	result() const
-				{
-					return ("the Grade of this BUreaucrat is too hight\n");
-				}
-				~GradeTooLowException() {};
+				GradeTooLowException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooLowException() _GLIBCXX_NOTHROW;
 		};
 		Bureaucrat(const std::string &name, int Grade);
 		void		SetName(std::string &NewName);

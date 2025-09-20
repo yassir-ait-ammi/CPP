@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:28:39 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/19 16:02:02 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:46:41 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main()
 		std::cout << a << std::endl;
 		a.increment();
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e.result();
+		std::cerr << e.what();
 	}
 	try
 	{
@@ -32,9 +32,9 @@ int main()
 			std::cout << b << std::endl;
 			b.decrement();
 		}
-		catch (const Bureaucrat::GradeTooLowException& e)
+		catch (const std::exception& e)
 		{
-			std::cerr << e.result();
+			std::cerr << e.what();
 			throw;
 		}
 	}

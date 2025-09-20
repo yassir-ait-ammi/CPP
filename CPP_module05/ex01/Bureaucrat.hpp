@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:27:45 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/08/24 11:55:19 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:50:55 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,19 @@ class Bureaucrat
 		~Bureaucrat();
 
 		// exceptions
-		class GradeTooHighException
+		class GradeTooHighException : public std::exception
 		{
-		public:
-			GradeTooHighException() {};
-			const std::string	what() const
-			{
-				return ("the Grade of this BUreaucrat is too hight\n");
-			}
-			~GradeTooHighException() {};
+			public:
+				GradeTooHighException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooHighException() _GLIBCXX_NOTHROW;
 		};
-		class GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
-		public:
-			GradeTooLowException() {};
-			const std::string	what() const
-			{
-				return ("the Grade of this BUreaucrat is too hight\n");
-			}
-			~GradeTooLowException() {};
+			public:
+				GradeTooLowException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooLowException() _GLIBCXX_NOTHROW;
 		};
 
 		// helper fincion

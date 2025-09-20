@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 11:05:17 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/08/27 10:57:45 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:52:43 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,19 @@ class Form
 		~Form();
 
 		// exceptions
-		class GradeTooHighException
+		class GradeTooHighException : public std::exception
 		{
-		public:
-			GradeTooHighException() {};
-			const std::string	result() const
-			{
-				return ("the Grade of this BUreaucrat is too hight\n");
-			}
-			~GradeTooHighException() {};
+			public:
+				GradeTooHighException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooHighException() _GLIBCXX_NOTHROW;
 		};
-		class GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
-		public:
-			GradeTooLowException() {};
-			const std::string	result() const
-			{
-				return ("the Grade of this BUreaucrat is too hight\n");
-			}
-			~GradeTooLowException() {};
+			public:
+				GradeTooLowException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooLowException() _GLIBCXX_NOTHROW;
 		};
 
 		// helper function

@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 11:03:39 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/14 09:22:06 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:59:06 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,3 +72,25 @@ void	AForm::execute(const Bureaucrat& executor) const
 AForm::~AForm()
 {
 }
+
+const char*	AForm::GradeTooHighException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too hight\n");
+}
+
+const char*	AForm::GradeTooLowException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too low\n");
+}
+
+AForm::GradeTooHighException::GradeTooHighException()
+{}
+
+AForm::GradeTooHighException::~GradeTooHighException() _GLIBCXX_NOTHROW
+{}
+
+AForm::GradeTooLowException::GradeTooLowException()
+{}
+
+AForm::GradeTooLowException::~GradeTooLowException() _GLIBCXX_NOTHROW
+{}

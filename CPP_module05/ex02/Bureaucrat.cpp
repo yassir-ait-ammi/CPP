@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 10:32:01 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/14 10:07:08 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:56:46 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void Bureaucrat::executeForm(const AForm& form) const
 	catch (Bureaucrat::NotSignedException& e)
 	{
 		std::cout << name << " cannot execute " << form.getName()
-				<< " because " << e.result();
+				<< " because " << e.what();
 	}
 }
 
@@ -104,7 +104,7 @@ void Bureaucrat::signForm(AForm& form) const
 	catch (Bureaucrat::NotSignedException& e)
 	{
 		std::cout << name << " cannot execute " << form.getName()
-				<< " because " << e.result() << std::endl;
+				<< " because " << e.what() << std::endl;
 	}
 }
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
@@ -112,3 +112,30 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 	os << b.GetName() << ", bureaucrat grade " << b.GetGrade();
 	return os;
 }
+
+const char*	Bureaucrat::NotSignedException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Form is not signe yet\n");
+}
+
+const char*	Bureaucrat::GradeTooHighException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too hight\n");
+}
+
+const char*	Bureaucrat::GradeTooLowException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too low\n");
+}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException()
+{}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException() _GLIBCXX_NOTHROW
+{}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException()
+{}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() _GLIBCXX_NOTHROW
+{}

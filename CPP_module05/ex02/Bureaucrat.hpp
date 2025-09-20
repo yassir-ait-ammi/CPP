@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:27:45 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/14 10:07:25 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:55:13 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,24 @@ class Bureaucrat
 		Bureaucrat&		operator=(const Bureaucrat&	other);
 		~Bureaucrat();
 
-		class GradeTooHighException
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				const std::string	result() const
-				{
-					return ("the Grade of this Bureaucrat is too hight\n");
-				}
+				GradeTooHighException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooHighException() _GLIBCXX_NOTHROW;
 		};
-		class GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
 			public:
-				const std::string	result() const
-				{
-					return ("the Grade of this Bureaucrat is too low\n");
-				}
+				GradeTooLowException();
+				const char*	what() const _GLIBCXX_NOTHROW;
+				~GradeTooLowException() _GLIBCXX_NOTHROW;
 		};
-		class NotSignedException
+		class NotSignedException : public std::exception
 		{
 			public:
-				const std::string	result() const
-				{
-					return ("the Form is not signe yet\n");
-				}
+				const char*	what() const _GLIBCXX_NOTHROW;
 		};
 		Bureaucrat(const std::string &name, int Grade);
 		void		SetName(std::string &NewName);

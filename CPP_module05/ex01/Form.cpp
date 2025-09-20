@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 11:53:51 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/08/27 11:03:18 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:53:14 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,25 @@ std::string		Form::getName()
 Form::~Form()
 {
 }
+
+const char*	Form::GradeTooHighException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too hight\n");
+}
+
+const char*	Form::GradeTooLowException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too low\n");
+}
+
+Form::GradeTooHighException::GradeTooHighException()
+{}
+
+Form::GradeTooHighException::~GradeTooHighException() _GLIBCXX_NOTHROW
+{}
+
+Form::GradeTooLowException::GradeTooLowException()
+{}
+
+Form::GradeTooLowException::~GradeTooLowException() _GLIBCXX_NOTHROW
+{}

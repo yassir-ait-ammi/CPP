@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 10:32:01 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/08/24 11:56:32 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:51:45 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,25 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 	os << b.GetName() << ", bureaucrat grade " << b.GetGrade();
 	return os;
 }
+
+const char*	Bureaucrat::GradeTooHighException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too hight\n");
+}
+
+const char*	Bureaucrat::GradeTooLowException::what() const _GLIBCXX_NOTHROW
+{
+	return ("the Grade of this Bureaucrat is too low\n");
+}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException()
+{}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException() _GLIBCXX_NOTHROW
+{}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException()
+{}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() _GLIBCXX_NOTHROW
+{}

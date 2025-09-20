@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:28:39 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/14 10:05:49 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:57:46 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ int main()
 	{
 		Bureaucrat tooHigh("Boss", 0);
 	}
-	catch (const Bureaucrat::GradeTooHighException &e)
+	catch (const std::exception &e)
 	{
-		std::cout << "Caught custom exception: " << e.result();
+		std::cout << "Caught custom exception: " << e.what();
 	}
 	try
 	{
 		Bureaucrat tooLow("Intern", 200);
 	}
-	catch (const Bureaucrat::GradeTooLowException &e)
+	catch (const std::exception &e)
 	{
-		std::cout << "Caught custom exception: " << e.result();
+		std::cout << "Caught custom exception: " << e.what();
 	}
 	Bureaucrat bob("Bob", 150);
 	ShrubberyCreationForm shrub("home");
@@ -45,9 +45,9 @@ int main()
 	{
 		bob.executeForm(shrub);
 	}
-	catch (Bureaucrat::NotSignedException& e)
+	catch (std::exception& e)
 	{
-		std::cout << "Caught custom form exception: " << e.result();
+		std::cout << "Caught custom form exception: " << e.what();
 	}
 	try
 	{
@@ -55,15 +55,15 @@ int main()
 	}
 	catch (const AForm::GradeTooLowException &e)
 	{
-		std::cout << "Caught custom form exception: " << e.result();
+		std::cout << "Caught custom form exception: " << e.what();
 	}
 	try
 	{
 		bob.executeForm(shrub);
 	}
-	catch (const Bureaucrat::GradeTooLowException &e)
+	catch (const std::exception &e)
 	{
-		std::cout << "Caught custom form exception: " << e.result();
+		std::cout << "Caught custom form exception: " << e.what();
 	}
 
 	return 0;

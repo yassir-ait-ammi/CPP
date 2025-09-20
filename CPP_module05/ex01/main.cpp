@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:28:39 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/08/24 11:45:56 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/20 15:52:26 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 		F.beSigned(a);
 		a.signForm(F);
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
+	catch(const std::exception& e)
 	{
 		std::cerr << e.what();
 	}
@@ -34,10 +34,10 @@ int main()
 			std::cout << b << std::endl;
 			b.decrement();
 		}
-		catch (const Bureaucrat::GradeTooLowException& e)
+		catch (const std::exception& e)
 		{
 			std::cerr << e.what();
-			throw; // throw the last catch
+			throw;
 		}
 	}
 	catch (...)
