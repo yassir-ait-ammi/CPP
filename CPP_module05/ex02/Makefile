@@ -6,7 +6,7 @@
 #    By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/22 16:02:00 by yaait-am          #+#    #+#              #
-#    Updated: 2025/08/27 10:54:15 by yaait-am         ###   ########.fr        #
+#    Updated: 2025/09/20 16:01:56 by yaait-am         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
+	rm -f home_shrubbery
 	rm -f $(NAME)
 
 re: fclean all
