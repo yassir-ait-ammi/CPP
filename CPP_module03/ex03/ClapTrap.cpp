@@ -6,14 +6,14 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:38:22 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/06/28 13:42:00 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/16 12:04:28 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string new_one)
-	: HitPoint(100),EnergyPoint(50), AttackDamage(20)
+	: HitPoint(10),EnergyPoint(10), AttackDamage(0)
 {
 	name = new_one;
 	std::cout << "ClapTrap " << new_one << " has been ceated\n";
