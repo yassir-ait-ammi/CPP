@@ -6,14 +6,14 @@
 #    By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 20:13:37 by yaait-am          #+#    #+#              #
-#    Updated: 2025/09/16 11:31:35 by yaait-am         ###   ########.fr        #
+#    Updated: 2025/09/16 11:40:11 by yaait-am         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
 FLGS = -Wall -Wextra -Werror -std=c++98
-NAME = stack
-SRCS = main.cpp
+NAME = bitcoin
+SRCS = main.cpp BitcoinExchange.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
