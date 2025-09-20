@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 10:32:01 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/08/24 10:58:18 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/19 16:04:23 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,9 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
 	os << b.GetName() << ", bureaucrat grade " << b.GetGrade();
 	return os;
+}
+
+const std::string	Bureaucrat::GradeTooHighException::result() const
+{
+	return ("the Grade of this BUreaucrat is too hight\n");
 }

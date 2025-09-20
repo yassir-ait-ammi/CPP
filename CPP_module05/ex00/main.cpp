@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 15:28:39 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/04 09:16:33 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/19 16:02:02 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
 		catch (const Bureaucrat::GradeTooLowException& e)
 		{
 			std::cerr << e.result();
-			throw; // throw the last catch
+			throw;
 		}
 	}
 	catch (...)
