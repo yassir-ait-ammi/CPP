@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:34:54 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/15 11:51:45 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/23 09:38:08 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ class Serializer
 
 		// OCF
 		Serializer();
-		Serializer&	operator=(const Serializer& other)
-		{
-			(void)other;
-			return (*this);
-		}
+		Serializer&	operator=(const Serializer& other);
 		Serializer(const Serializer &other);
 		~Serializer();
 	public:
