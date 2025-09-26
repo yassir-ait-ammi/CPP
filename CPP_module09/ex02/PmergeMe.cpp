@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 11:06:47 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/21 11:41:47 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/26 10:21:18 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,48 +75,39 @@ std::vector<int> const	&PmergeMe::getvect() const
 
 void	PmergeMe::sort_vect()
 {
-	sort_vect(this->vect);
+	sort_container(this->vect);
 }
 
-void	PmergeMe::sort_vect(std::vector<int> &vect)
+template <typename T>
+T PmergeMe::Jacobsthal_numbers(const T& losers)
 {
-	if (vect.size() <= 1)
-		return ;
-	std::vector<int>	winners;
-	std::vector<int>	losers;
+	T jacob;
+	T result;
 
-	for (size_t i = 0; i + 1 < vect.size(); i+= 2)
+	if (losers.empty())
+		return result;
+	jacob.push_back(0);
+	if (losers.size() > 1)
+		jacob.push_back(1);
+	size_t i = 2;
+	while (true)
 	{
-		if (vect[i] < vect[i + 1])
-		{
-			winners.push_back(vect[i + 1]);
-			losers.push_back(vect[i]);
-		}
-		else
-		{
-			winners.push_back(vect[i]);
-			losers.push_back(vect[i + 1]);
-		}
+		if (jacob.size() < 2)
+			break;
+		int push = jacob[i - 1] + 2 * jacob[i - 2];
+		if (push >= (int)losers.size())
+			break;
+		jacob.push_back(push);
+		i++;
 	}
-	bool	hasleftover = false;
-	int	leftover;
-	if (vect.size() % 2 != 0)
+	for (size_t j = 0; j < jacob.size(); j++)
+		result.push_back(jacob[j]);
+	for (size_t k = losers.size(); k-- > 0; )
 	{
-		leftover = vect.back();
-		hasleftover = true;
+		if (std::find(jacob.begin(), jacob.end(), k) == jacob.end())
+			result.push_back(k);
 	}
-	sort_vect(winners);
-	for (size_t i = 0; i < losers.size(); i++)
-	{
-		std::vector<int>::iterator pos = std::lower_bound(winners.begin(), winners.end(), losers[i]);
-		winners.insert(pos, losers[i]);
-	}
-	if (hasleftover)
-	{
-		std::vector<int>::iterator pos = std::lower_bound(winners.begin(), winners.end(), leftover);
-		winners.insert(pos, leftover);
-	}
-	vect = winners;
+	return result;
 }
 
 void	PmergeMe::print_vect() const
@@ -127,15 +118,27 @@ void	PmergeMe::print_vect() const
 
 void	PmergeMe::sort_deque()
 {
-	sort_deque(this->deque);
+	sort_container(this->deque);
 }
 
-void	PmergeMe::sort_deque(std::deque<int> &deque)
+void	PmergeMe::print_deque() const
+{
+	for (size_t i = 0; i < deque.size(); i++)
+		std::cout << " " << deque[i] << " ";
+}
+
+size_t	PmergeMe::get_size() const
+{
+	return (vect.size());
+}
+
+template <typename T>
+void	PmergeMe::sort_container(T &deque)
 {
 	if (deque.size() <= 1)
 		return ;
-	std::deque<int>	winners;
-	std::deque<int>	losers;
+	T	winners;
+	T	losers;
 
 	for (size_t i = 0; i + 1 < deque.size(); i+= 2)
 	{
@@ -157,27 +160,17 @@ void	PmergeMe::sort_deque(std::deque<int> &deque)
 		leftover = deque.back();
 		hasleftover = true;
 	}
-	sort_deque(winners);
-
+	sort_container(winners);
+	T	oreder = Jacobsthal_numbers(losers);
 	for (size_t i = 0; i < losers.size(); i++)
 	{
-		std::deque<int>::iterator pos = std::lower_bound(winners.begin(), winners.end(), losers[i]);
+		typename T::iterator pos = std::lower_bound(winners.begin(), winners.end(), losers[i]);
 		winners.insert(pos, losers[i]);
 	}
 	if (hasleftover)
 	{
-		std::deque<int>::iterator pos = std::lower_bound(winners.begin(), winners.end(), leftover);
+		typename T::iterator pos = std::lower_bound(winners.begin(), winners.end(), leftover);
 		winners.insert(pos, leftover);
 	}
 	deque = winners;
-}
-void	PmergeMe::print_deque() const
-{
-	for (size_t i = 0; i < deque.size(); i++)
-		std::cout << " " << deque[i] << " ";
-}
-
-size_t	PmergeMe::get_size() const
-{
-	return (vect.size());
 }
