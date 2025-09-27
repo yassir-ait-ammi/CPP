@@ -6,11 +6,75 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 18:40:08 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/18 16:58:51 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/27 09:54:19 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+bool isLeapYear(int year)
+{
+	return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+std::string trim(const std::string &s)
+{
+	size_t start = 0;
+	size_t end = s.size();
+	while (start < s.size() && isspace(s[start]))
+		start++;
+	while (end > start && isspace(s[end - 1]))
+		end--;
+	return s.substr(start, end - start);
+}
+
+int	is_valid_date(std::string& date)
+{
+	date = trim(date);
+	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
+		return (false);
+	for (size_t i = 0; i < date.size(); i++)
+	{
+		if (i == 4 || i == 7)
+			continue ;
+		if (!std::isdigit(date[i]))
+			return (false);
+	}
+
+	int year = std::atoi(date.substr(0, 4).c_str());
+	int mouth = std::atoi(date.substr(5, 2).c_str());
+	int day = std::atoi(date.substr(8, 2).c_str());
+	if (mouth < 1 || mouth > 12)
+		return (false);
+	int dayinMouthe[] = { 31,28,31,30,31,30,31,31,30,31,30,31};
+	if (isLeapYear(year)) dayinMouthe[1] = 29;
+	if (day < 1 || day > dayinMouthe[mouth - 1])
+		return (false);
+	return (true);
+}
+
+int	is_valid_value(std::string& value)
+{
+	value = trim(value);
+	if (value.empty())
+		return (false);
+	bool	found_dot = false;
+	size_t i = 0;
+	if (value[i] == '+')
+		i++;
+	for (; i < value.size(); i++)
+	{
+		if (value[i] == '.')
+		{
+			if (found_dot)
+				return (false);
+			found_dot = true;
+		}
+		else if (!std::isdigit(value[i]))
+			return (false);
+	}
+	return (true);
+}
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -61,6 +125,16 @@ void	BitcoinExchange::find_data(std::string filename)
 		std::string	date = line.substr(0, pos);
 		std::string	value_str = line.substr(pos + 1);
 
+		if (!is_valid_date(date))
+		{
+			std::cerr << "Error: bad line format => " << line << std::endl;
+			continue ;
+		}
+		if (!is_valid_value(value_str))
+		{
+			std::cerr << "Error: bad line format => " << line << std::endl;
+			continue ;
+		}
 		char *end;
 		double	value = std::strtod(value_str.c_str(), &end);
 		if (*end != '\0')

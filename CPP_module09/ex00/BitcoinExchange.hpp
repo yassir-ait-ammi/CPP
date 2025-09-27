@@ -6,7 +6,7 @@
 /*   By: yaait-am <yaait-am@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 18:29:26 by yaait-am          #+#    #+#             */
-/*   Updated: 2025/09/18 16:58:12 by yaait-am         ###   ########.fr       */
+/*   Updated: 2025/09/27 09:29:38 by yaait-am         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <map>
+#include <string>
 
 class BitcoinExchange
 {
