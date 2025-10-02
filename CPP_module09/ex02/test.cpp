@@ -64,7 +64,7 @@ int main() {
 	std::vector<int> arr = {25, 3, 7, 1, 19, 2, 8, 14, 6};
 	printVec(arr, "Before");
 
-	std::vector<int> sorted = fordJohnsonSort(arr);
+	std::vector<int> sorted = (arr);
 	printVec(sorted, "After");
 
 	return 0;
